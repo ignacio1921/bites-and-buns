@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Bites & Buns - Fast Food Premium</title>
+<title>Premium Food Service</title>
 
 <style>
 * {
@@ -13,32 +13,40 @@
 }
 
 :root {
-  --primary: #FF6B35;
-  --secondary: #FFC244;
+  --primary: #2c3e50;
+  --secondary: #e74c3c;
+  --accent: #ecf0f1;
   --dark: #1a1a1a;
-  --light: #f5f5f5;
-  --success: #4CAF50;
+  --light: #f8f9fa;
+  --success: #27ae60;
+  --text: #333;
+  --text-light: #666;
+  --border: #e0e0e0;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background: var(--dark);
-  color: #fff;
+  background: var(--light);
+  color: var(--text);
   line-height: 1.6;
 }
 
 /* NAVBAR */
 nav {
-  background: linear-gradient(135deg, var(--primary) 0%, #ff8c42 100%);
+  background: white;
   padding: 0;
   position: sticky;
   top: 0;
   z-index: 100;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
 }
 
 .navbar-container {
-  max-width: 1200px;
+  max-width: 1400px;
   margin: 0 auto;
   display: flex;
   justify-content: space-between;
@@ -47,34 +55,42 @@ nav {
 }
 
 .logo {
-  font-size: 28px;
-  font-weight: bold;
-  display: flex;
-  align-items: center;
-  gap: 10px;
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--primary);
+  letter-spacing: -0.5px;
 }
 
 .nav-links {
   display: flex;
-  gap: 2rem;
+  gap: 2.5rem;
   list-style: none;
 }
 
 .nav-links a {
-  color: white;
+  color: var(--text);
   text-decoration: none;
   font-weight: 500;
-  transition: 0.3s;
+  font-size: 0.95rem;
+  transition: color 0.3s ease;
+  border-bottom: 2px solid transparent;
+  padding-bottom: 2px;
 }
 
 .nav-links a:hover {
   color: var(--secondary);
+  border-bottom-color: var(--secondary);
 }
 
 .cart-icon {
   position: relative;
   cursor: pointer;
-  font-size: 24px;
+  font-size: 22px;
+  transition: transform 0.3s ease;
+}
+
+.cart-icon:hover {
+  transform: scale(1.1);
 }
 
 .cart-count {
@@ -82,65 +98,72 @@ nav {
   top: -8px;
   right: -8px;
   background: var(--secondary);
-  color: black;
+  color: white;
   border-radius: 50%;
-  width: 22px;
-  height: 22px;
+  width: 20px;
+  height: 20px;
   display: flex;
   align-items: center;
   justify-content: center;
   font-weight: bold;
-  font-size: 12px;
+  font-size: 11px;
 }
 
 /* HERO */
 .hero {
-  background: linear-gradient(135deg, var(--primary) 0%, #ff8c42 100%);
-  padding: 60px 20px;
+  background: linear-gradient(135deg, var(--primary) 0%, #34495e 100%);
+  padding: 100px 20px;
   text-align: center;
   color: white;
 }
 
 .hero h1 {
-  font-size: 3.5rem;
-  margin-bottom: 10px;
-  text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+  font-size: 3.2rem;
+  margin-bottom: 20px;
+  font-weight: 700;
+  letter-spacing: -1px;
+  line-height: 1.2;
 }
 
 .hero p {
-  font-size: 1.3rem;
-  margin-bottom: 30px;
+  font-size: 1.15rem;
+  margin-bottom: 40px;
   opacity: 0.95;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.6;
 }
 
 .hero-btns {
   display: flex;
-  gap: 15px;
+  gap: 20px;
   justify-content: center;
   flex-wrap: wrap;
 }
 
 .btn {
-  padding: 12px 30px;
+  padding: 13px 35px;
   border: none;
-  border-radius: 8px;
-  font-weight: bold;
+  border-radius: 6px;
+  font-weight: 600;
   cursor: pointer;
-  transition: 0.3s;
-  font-size: 16px;
+  transition: all 0.3s ease;
+  font-size: 0.95rem;
   text-decoration: none;
   display: inline-block;
+  letter-spacing: 0.5px;
 }
 
 .btn-primary {
   background: var(--secondary);
-  color: black;
+  color: white;
 }
 
 .btn-primary:hover {
-  background: #ffc244cc;
+  background: #c0392b;
   transform: translateY(-2px);
-  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+  box-shadow: 0 8px 20px rgba(231, 76, 60, 0.3);
 }
 
 .btn-secondary {
@@ -152,169 +175,188 @@ nav {
 .btn-secondary:hover {
   background: white;
   color: var(--primary);
+  border-color: white;
 }
 
 /* CONTAINER */
 .container {
-  max-width: 1200px;
+  max-width: 1400px;
   margin: 0 auto;
   padding: 0 20px;
 }
 
 /* SECCIONES */
 section {
-  padding: 60px 20px;
+  padding: 80px 20px;
 }
 
 section h2 {
   text-align: center;
   font-size: 2.5rem;
-  margin-bottom: 10px;
-  color: var(--secondary);
+  margin-bottom: 15px;
+  color: var(--primary);
+  font-weight: 700;
+  letter-spacing: -0.5px;
 }
 
 .section-subtitle {
   text-align: center;
-  color: #aaa;
-  margin-bottom: 40px;
-  font-size: 1.1rem;
+  color: var(--text-light);
+  margin-bottom: 50px;
+  font-size: 1.05rem;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 /* MENÚ */
 .menu-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  gap: 25px;
-  margin-bottom: 40px;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 30px;
+  margin-bottom: 50px;
 }
 
 .menu-category {
-  margin-bottom: 50px;
+  margin-bottom: 60px;
 }
 
 .menu-category h3 {
   color: var(--primary);
   font-size: 1.8rem;
-  margin-bottom: 25px;
-  padding-bottom: 10px;
+  margin-bottom: 30px;
+  padding-bottom: 15px;
   border-bottom: 3px solid var(--secondary);
+  font-weight: 700;
 }
 
 .card {
-  background: #2a2a2a;
-  border-radius: 12px;
+  background: white;
+  border-radius: 10px;
   overflow: hidden;
-  transition: 0.3s;
+  transition: all 0.3s ease;
   cursor: pointer;
-  border: 2px solid transparent;
+  border: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 }
 
 .card:hover {
-  border-color: var(--primary);
-  transform: translateY(-8px);
-  box-shadow: 0 10px 30px rgba(255, 107, 53, 0.3);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+  transform: translateY(-6px);
+  border-color: var(--secondary);
 }
 
-/* CARD IMAGE - ESTILOS VISUALES SIN IMÁGENES */
+/* CARD IMAGE */
 .card-image {
   width: 100%;
-  height: 200px;
+  height: 220px;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 70px;
+  font-size: 80px;
   font-weight: bold;
   position: relative;
   overflow: hidden;
 }
 
-/* COLORES PARA CADA CATEGORÍA */
 .card-image.burger {
-  background: linear-gradient(135deg, #8B4513 0%, #D2691E 100%);
+  background: linear-gradient(135deg, #d4a574 0%, #a0826d 100%);
 }
 
 .card-image.hotdog {
-  background: linear-gradient(135deg, #CD853F 0%, #DAA520 100%);
+  background: linear-gradient(135deg, #e8b4a6 0%, #d4846b 100%);
 }
 
 .card-image.fries {
-  background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
+  background: linear-gradient(135deg, #f4d4a0 0%, #e6b847 100%);
 }
 
 .card-image.drink {
-  background: linear-gradient(135deg, #1E90FF 0%, #00CED1 100%);
+  background: linear-gradient(135deg, #7eb3d4 0%, #5a8ba0 100%);
 }
 
 .card-image.dessert {
-  background: linear-gradient(135deg, #FF69B4 0%, #FF1493 100%);
+  background: linear-gradient(135deg, #e8a8c8 0%, #d97db1 100%);
 }
 
-/* ANIMACIÓN PARA ICONOS */
 .card-image::after {
   content: '';
   position: absolute;
   width: 100%;
   height: 100%;
-  background: rgba(255,255,255,0.1);
-  animation: shine 3s infinite;
+  background: rgba(255,255,255,0.05);
+  animation: shimmer 3s infinite;
 }
 
-@keyframes shine {
+@keyframes shimmer {
   0% { transform: translateX(-100%); }
   100% { transform: translateX(100%); }
 }
 
 .card-content {
-  padding: 20px;
+  padding: 25px;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
 }
 
 .card h3 {
-  color: var(--secondary);
-  margin-bottom: 8px;
-  font-size: 1.3rem;
+  color: var(--primary);
+  margin-bottom: 12px;
+  font-size: 1.25rem;
+  font-weight: 700;
 }
 
 .card p {
-  color: #aaa;
+  color: var(--text-light);
   font-size: 0.95rem;
-  margin-bottom: 15px;
-  min-height: 40px;
+  margin-bottom: 20px;
+  flex-grow: 1;
+  line-height: 1.5;
 }
 
 .card-footer {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin-top: auto;
 }
 
 .price {
-  font-size: 1.5rem;
-  font-weight: bold;
+  font-size: 1.4rem;
+  font-weight: 700;
   color: var(--secondary);
 }
 
 .alergenos {
   font-size: 0.85rem;
-  color: #888;
-  margin-top: 10px;
+  color: #999;
+  margin-top: 12px;
+  padding-top: 12px;
+  border-top: 1px solid var(--border);
 }
 
 .add-btn {
-  background: var(--primary);
+  background: var(--secondary);
   color: white;
   border: none;
-  padding: 10px 20px;
+  padding: 10px 22px;
   border-radius: 6px;
   cursor: pointer;
-  font-weight: bold;
-  transition: 0.3s;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  font-size: 0.9rem;
 }
 
 .add-btn:hover {
-  background: #ff5722;
+  background: #c0392b;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(231, 76, 60, 0.2);
 }
 
-/* CARRITO MODAL */
+/* MODAL CARRITO */
 .modal {
   display: none;
   position: fixed;
@@ -322,7 +364,7 @@ section h2 {
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0,0,0,0.7);
+  background: rgba(0,0,0,0.5);
   z-index: 200;
 }
 
@@ -333,31 +375,42 @@ section h2 {
 }
 
 .modal-content {
-  background: var(--dark);
+  background: white;
   border-radius: 12px;
-  padding: 30px;
+  padding: 35px;
   max-width: 500px;
   width: 90%;
   max-height: 80vh;
   overflow-y: auto;
-  box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+  box-shadow: 0 20px 60px rgba(0,0,0,0.15);
 }
 
 .modal-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 20px;
-  border-bottom: 2px solid var(--primary);
+  margin-bottom: 25px;
+  border-bottom: 2px solid var(--border);
   padding-bottom: 15px;
+}
+
+.modal-header h2 {
+  color: var(--primary);
+  margin: 0;
+  font-size: 1.5rem;
 }
 
 .close-btn {
   background: none;
   border: none;
-  color: var(--secondary);
+  color: var(--text-light);
   font-size: 28px;
   cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.close-btn:hover {
+  color: var(--text);
 }
 
 .cart-item {
@@ -365,167 +418,194 @@ section h2 {
   justify-content: space-between;
   align-items: center;
   padding: 15px 0;
-  border-bottom: 1px solid #333;
+  border-bottom: 1px solid var(--border);
 }
 
 .cart-item-info h4 {
-  color: var(--secondary);
+  color: var(--primary);
   margin-bottom: 5px;
+  font-weight: 600;
 }
 
 .cart-item-price {
   color: var(--secondary);
-  font-weight: bold;
+  font-weight: 700;
 }
 
 .quantity-control {
   display: flex;
-  gap: 10px;
+  gap: 8px;
   align-items: center;
 }
 
 .qty-btn {
-  background: var(--primary);
-  color: white;
-  border: none;
-  width: 30px;
-  height: 30px;
+  background: var(--light);
+  color: var(--primary);
+  border: 1px solid var(--border);
+  width: 32px;
+  height: 32px;
   border-radius: 4px;
   cursor: pointer;
-  font-weight: bold;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.qty-btn:hover {
+  background: var(--secondary);
+  color: white;
+  border-color: var(--secondary);
 }
 
 .remove-btn {
-  background: #c62828;
-  color: white;
+  background: #ecf0f1;
+  color: var(--secondary);
   border: none;
   padding: 5px 15px;
   border-radius: 4px;
   cursor: pointer;
-  font-size: 0.9rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.remove-btn:hover {
+  background: var(--secondary);
+  color: white;
 }
 
 .cart-total {
-  margin-top: 20px;
+  margin-top: 25px;
   padding-top: 20px;
-  border-top: 2px solid var(--primary);
+  border-top: 2px solid var(--secondary);
   text-align: right;
 }
 
 .total-amount {
   font-size: 1.8rem;
   color: var(--secondary);
-  font-weight: bold;
+  font-weight: 700;
   margin-bottom: 20px;
 }
 
 .checkout-btn {
   width: 100%;
-  padding: 15px;
+  padding: 14px;
   background: var(--success);
   color: white;
   border: none;
   border-radius: 6px;
-  font-weight: bold;
+  font-weight: 700;
   cursor: pointer;
   font-size: 1rem;
-  transition: 0.3s;
+  transition: all 0.3s ease;
+  letter-spacing: 0.5px;
 }
 
 .checkout-btn:hover {
-  background: #45a049;
+  background: #229954;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(39, 174, 96, 0.3);
 }
 
 .empty-cart {
   text-align: center;
-  padding: 40px;
-  color: #aaa;
+  padding: 50px 20px;
+  color: var(--text-light);
 }
 
 /* ABOUT */
 .about {
-  background: linear-gradient(135deg, #2a2a2a 0%, #1a1a1a 100%);
+  background: white;
 }
 
 .about-content {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 40px;
+  gap: 50px;
   align-items: center;
 }
 
 .about-text h3 {
-  color: var(--primary);
-  font-size: 1.5rem;
-  margin-bottom: 15px;
+  color: var(--secondary);
+  font-size: 1.8rem;
+  margin-bottom: 20px;
+  font-weight: 700;
 }
 
 .about-text p {
-  color: #aaa;
-  margin-bottom: 15px;
+  color: var(--text-light);
+  margin-bottom: 20px;
   line-height: 1.8;
 }
 
 .features {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 20px;
-  margin-top: 25px;
+  gap: 25px;
+  margin-top: 30px;
 }
 
 .feature {
-  padding: 20px;
-  background: #333;
-  border-left: 4px solid var(--primary);
-  border-radius: 4px;
+  padding: 25px;
+  background: var(--light);
+  border-left: 4px solid var(--secondary);
+  border-radius: 6px;
 }
 
 .feature h4 {
-  color: var(--secondary);
-  margin-bottom: 10px;
+  color: var(--primary);
+  margin-bottom: 12px;
+  font-weight: 700;
 }
 
 .feature p {
   font-size: 0.95rem;
-  color: #aaa;
+  color: var(--text-light);
+  line-height: 1.6;
 }
 
 /* STATS BOX */
 .stats-box {
-  background: linear-gradient(135deg, var(--primary) 0%, #ff8c42 100%);
-  padding: 40px;
-  border-radius: 12px;
+  background: linear-gradient(135deg, var(--primary) 0%, #34495e 100%);
+  padding: 50px;
+  border-radius: 10px;
   text-align: center;
 }
 
 .stat-item {
-  margin-bottom: 25px;
+  margin-bottom: 30px;
 }
 
 .stat-number {
-  font-size: 2.5rem;
-  font-weight: bold;
-  color: white;
+  font-size: 2.8rem;
+  font-weight: 700;
+  color: var(--secondary);
   margin-bottom: 10px;
 }
 
 .stat-label {
-  font-size: 1rem;
-  color: rgba(255,255,255,0.9);
+  font-size: 1.05rem;
+  color: white;
+  font-weight: 500;
 }
 
 /* CONTACT */
 .contact {
-  background: linear-gradient(135deg, var(--primary) 0%, #ff8c42 100%);
+  background: var(--primary);
+  color: white;
 }
 
 .contact h2 {
   color: white;
 }
 
+.contact .section-subtitle {
+  color: rgba(255,255,255,0.9);
+}
+
 .contact-content {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 40px;
   margin-top: 40px;
 }
@@ -533,19 +613,27 @@ section h2 {
 .contact-item {
   text-align: center;
   color: white;
-  background: rgba(255,255,255,0.1);
-  padding: 25px;
-  border-radius: 12px;
+  padding: 30px;
+  background: rgba(255,255,255,0.08);
+  border-radius: 10px;
+  border: 1px solid rgba(255,255,255,0.1);
   backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+}
+
+.contact-item:hover {
+  background: rgba(255,255,255,0.12);
+  transform: translateY(-5px);
 }
 
 .contact-item h4 {
-  margin-bottom: 10px;
+  margin-bottom: 12px;
   font-size: 1.3rem;
+  font-weight: 700;
 }
 
 .contact-item p {
-  font-size: 1.1rem;
+  font-size: 1rem;
   opacity: 0.95;
 }
 
@@ -555,19 +643,19 @@ section h2 {
   bottom: 20px;
   right: 20px;
   width: 350px;
-  background: #2a2a2a;
+  background: white;
   border-radius: 12px;
-  box-shadow: 0 5px 40px rgba(0,0,0,0.4);
+  box-shadow: 0 10px 40px rgba(0,0,0,0.15);
   z-index: 150;
-  border: 2px solid var(--primary);
+  border: 1px solid var(--border);
+  overflow: hidden;
 }
 
 .chat-header {
   background: var(--primary);
   color: white;
-  padding: 15px;
-  border-radius: 10px 10px 0 0;
-  font-weight: bold;
+  padding: 18px;
+  font-weight: 700;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -579,11 +667,16 @@ section h2 {
   color: white;
   cursor: pointer;
   font-size: 20px;
+  transition: transform 0.3s ease;
+}
+
+.chat-toggle:hover {
+  transform: scale(1.1);
 }
 
 .chat-content {
   padding: 15px;
-  height: 250px;
+  height: 280px;
   overflow-y: auto;
   display: none;
 }
@@ -594,74 +687,91 @@ section h2 {
 
 .chat-messages {
   margin-bottom: 15px;
-  min-height: 150px;
+  min-height: 180px;
 }
 
 .message {
-  margin-bottom: 10px;
-  padding: 10px;
-  border-radius: 6px;
+  margin-bottom: 12px;
+  padding: 12px;
+  border-radius: 8px;
   max-width: 90%;
+  font-size: 0.95rem;
 }
 
 .message.user {
   background: var(--primary);
+  color: white;
   margin-left: auto;
   text-align: right;
 }
 
 .message.bot {
-  background: #333;
-  color: var(--secondary);
+  background: var(--light);
+  color: var(--text);
+  border: 1px solid var(--border);
 }
 
 .chat-input-group {
   display: flex;
   gap: 10px;
+  padding: 10px;
+  border-top: 1px solid var(--border);
 }
 
 .chat-input {
   flex: 1;
   padding: 10px;
-  background: #1a1a1a;
-  border: 1px solid var(--primary);
+  background: var(--light);
+  border: 1px solid var(--border);
   border-radius: 4px;
-  color: white;
+  color: var(--text);
   font-size: 0.9rem;
+  font-family: inherit;
+}
+
+.chat-input:focus {
+  outline: none;
+  border-color: var(--secondary);
+  background: white;
 }
 
 .chat-send-btn {
-  background: var(--primary);
+  background: var(--secondary);
   color: white;
   border: none;
   padding: 10px 15px;
   border-radius: 4px;
   cursor: pointer;
-  font-weight: bold;
+  font-weight: 600;
+  transition: background 0.3s ease;
+}
+
+.chat-send-btn:hover {
+  background: #c0392b;
 }
 
 /* FOOTER */
 footer {
-  background: #0a0a0a;
-  padding: 40px 20px;
-  text-align: center;
+  background: var(--dark);
+  padding: 50px 20px;
   color: #aaa;
-  border-top: 2px solid var(--primary);
+  border-top: 1px solid #333;
 }
 
 .footer-content {
-  max-width: 1200px;
+  max-width: 1400px;
   margin: 0 auto;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 30px;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 40px;
   margin-bottom: 30px;
-  text-align: left;
 }
 
 .footer-section h4 {
-  color: var(--secondary);
-  margin-bottom: 15px;
+  color: white;
+  margin-bottom: 18px;
+  font-weight: 700;
+  font-size: 1.05rem;
 }
 
 .footer-section p,
@@ -670,18 +780,23 @@ footer {
   text-decoration: none;
   font-size: 0.95rem;
   display: block;
-  margin-bottom: 8px;
-  transition: 0.3s;
+  margin-bottom: 10px;
+  transition: color 0.3s ease;
+  line-height: 1.6;
 }
 
 .footer-section a:hover {
-  color: var(--primary);
+  color: var(--secondary);
 }
 
 .footer-bottom {
+  max-width: 1400px;
+  margin: 0 auto;
   border-top: 1px solid #333;
-  padding-top: 20px;
+  padding-top: 25px;
+  text-align: center;
   color: #666;
+  font-size: 0.9rem;
 }
 
 /* RESPONSIVE */
@@ -691,11 +806,15 @@ footer {
   }
 
   .hero h1 {
-    font-size: 2rem;
+    font-size: 2.2rem;
   }
 
   .hero p {
     font-size: 1rem;
+  }
+
+  .hero {
+    padding: 60px 20px;
   }
 
   .about-content {
@@ -710,8 +829,25 @@ footer {
     width: calc(100% - 40px);
   }
 
+  section {
+    padding: 50px 20px;
+  }
+
   section h2 {
     font-size: 2rem;
+  }
+
+  .features {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-btns {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .btn {
+    width: 100%;
   }
 }
 
@@ -737,10 +873,12 @@ footer {
   right: 20px;
   background: var(--success);
   color: white;
-  padding: 15px 25px;
+  padding: 16px 25px;
   border-radius: 6px;
   animation: fadeIn 0.3s ease-out;
   z-index: 300;
+  font-weight: 500;
+  box-shadow: 0 5px 20px rgba(39, 174, 96, 0.2);
 }
 </style>
 
@@ -750,7 +888,7 @@ footer {
 <!-- NAVBAR -->
 <nav>
   <div class="navbar-container">
-    <div class="logo">🍔 Bites & Buns</div>
+    <div class="logo">🍽️ Premium Meals</div>
     <ul class="nav-links">
       <li><a href="#menu">Menú</a></li>
       <li><a href="#about">Nosotros</a></li>
@@ -765,31 +903,31 @@ footer {
 
 <!-- HERO -->
 <section class="hero">
-  <h1>🌭 Bites & Buns</h1>
-  <p>La mejor comida rápida premium de la ciudad</p>
+  <h1>Experiencia Gastronómica Premium</h1>
+  <p>Disfruta de una selección curada de platos de calidad, preparados con ingredientes frescos y técnicas modernas</p>
   <div class="hero-btns">
-    <button class="btn btn-primary" onclick="document.getElementById('menu').scrollIntoView({behavior: 'smooth'})">Ver Menú</button>
+    <button class="btn btn-primary" onclick="document.getElementById('menu').scrollIntoView({behavior: 'smooth'})">Ver Menú Completo</button>
     <a href="#contact" class="btn btn-secondary">Contáctanos</a>
   </div>
 </section>
 
 <!-- MENÚ -->
 <section id="menu" class="container">
-  <h2>🍽️ Nuestro Menú</h2>
-  <p class="section-subtitle">Disfruta de nuestras especialidades preparadas con ingredientes frescos</p>
+  <h2>Nuestras Especialidades</h2>
+  <p class="section-subtitle">Una cuidada selección de platos preparados con los mejores ingredientes</p>
 
   <!-- HAMBURGUESAS -->
   <div class="menu-category">
-    <h3>🍔 Hamburguesas</h3>
+    <h3>Hamburguesas Gourmet</h3>
     <div class="menu-grid">
       <div class="card">
         <div class="card-image burger">🍔</div>
         <div class="card-content">
           <h3>Classic Burger</h3>
-          <p>Carne jugosa, lechuga, tomate, cebolla y salsa especial</p>
+          <p>Carne premium, lechuga, tomate, cebolla y salsa especial de la casa</p>
           <div class="card-footer">
             <span class="price">€8.99</span>
-            <button class="add-btn" onclick="addToCart('Classic Burger', 8.99)">+ Agregar</button>
+            <button class="add-btn" onclick="addToCart('Classic Burger', 8.99)">Agregar</button>
           </div>
           <p class="alergenos">🌾 Gluten | 🥛 Lácteos</p>
         </div>
@@ -799,10 +937,10 @@ footer {
         <div class="card-image burger">🧀</div>
         <div class="card-content">
           <h3>Double Cheese</h3>
-          <p>Doble carne, queso cheddar y salsas gourmet</p>
+          <p>Doble carne, queso cheddar premium y salsas gourmet</p>
           <div class="card-footer">
             <span class="price">€10.99</span>
-            <button class="add-btn" onclick="addToCart('Double Cheese', 10.99)">+ Agregar</button>
+            <button class="add-btn" onclick="addToCart('Double Cheese', 10.99)">Agregar</button>
           </div>
           <p class="alergenos">🌾 Gluten | 🥛 Lácteos</p>
         </div>
@@ -815,7 +953,7 @@ footer {
           <p>Carne premium, bacon crujiente, cebolla caramelizada y BBQ</p>
           <div class="card-footer">
             <span class="price">€11.99</span>
-            <button class="add-btn" onclick="addToCart('Bacon BBQ', 11.99)">+ Agregar</button>
+            <button class="add-btn" onclick="addToCart('Bacon BBQ', 11.99)">Agregar</button>
           </div>
           <p class="alergenos">🌾 Gluten | 🥛 Lácteos</p>
         </div>
@@ -828,7 +966,7 @@ footer {
           <p>Carne picante, jalapeños, chiles y mayonesa de sriracha</p>
           <div class="card-footer">
             <span class="price">€10.99</span>
-            <button class="add-btn" onclick="addToCart('Spicy Inferno', 10.99)">+ Agregar</button>
+            <button class="add-btn" onclick="addToCart('Spicy Inferno', 10.99)">Agregar</button>
           </div>
           <p class="alergenos">🌾 Gluten | 🥛 Lácteos | 🌶️ Picante</p>
         </div>
@@ -838,16 +976,16 @@ footer {
 
   <!-- HOT DOGS -->
   <div class="menu-category">
-    <h3>🌭 Hot Dogs</h3>
+    <h3>Hot Dogs Artesanales</h3>
     <div class="menu-grid">
       <div class="card">
         <div class="card-image hotdog">🌭</div>
         <div class="card-content">
           <h3>Classic Hot Dog</h3>
-          <p>Salchicha premium, pan tostado, mostaza y cebolla</p>
+          <p>Salchicha premium, pan artesanal, mostaza y cebolla crispy</p>
           <div class="card-footer">
             <span class="price">€5.99</span>
-            <button class="add-btn" onclick="addToCart('Classic Hot Dog', 5.99)">+ Agregar</button>
+            <button class="add-btn" onclick="addToCart('Classic Hot Dog', 5.99)">Agregar</button>
           </div>
           <p class="alergenos">🌾 Gluten</p>
         </div>
@@ -857,10 +995,10 @@ footer {
         <div class="card-image hotdog">🧀</div>
         <div class="card-content">
           <h3>Cheese Dog</h3>
-          <p>Salchicha con queso cheddar fundido</p>
+          <p>Salchicha con queso cheddar fundido y salsas premium</p>
           <div class="card-footer">
             <span class="price">€6.99</span>
-            <button class="add-btn" onclick="addToCart('Cheese Dog', 6.99)">+ Agregar</button>
+            <button class="add-btn" onclick="addToCart('Cheese Dog', 6.99)">Agregar</button>
           </div>
           <p class="alergenos">🌾 Gluten | 🥛 Lácteos</p>
         </div>
@@ -870,10 +1008,10 @@ footer {
         <div class="card-image hotdog">🥓</div>
         <div class="card-content">
           <h3>Bacon Hot Dog</h3>
-          <p>Salchicha con bacon crujiente y queso</p>
+          <p>Salchicha con bacon crujiente y queso fundido</p>
           <div class="card-footer">
             <span class="price">€7.99</span>
-            <button class="add-btn" onclick="addToCart('Bacon Hot Dog', 7.99)">+ Agregar</button>
+            <button class="add-btn" onclick="addToCart('Bacon Hot Dog', 7.99)">Agregar</button>
           </div>
           <p class="alergenos">🌾 Gluten | 🥛 Lácteos</p>
         </div>
@@ -883,16 +1021,16 @@ footer {
 
   <!-- PAPAS Y ACOMPAÑAMIENTOS -->
   <div class="menu-category">
-    <h3>🍟 Acompañamientos</h3>
+    <h3>Acompañamientos</h3>
     <div class="menu-grid">
       <div class="card">
         <div class="card-image fries">🍟</div>
         <div class="card-content">
-          <h3>Papas Fritas</h3>
-          <p>Papas crujientes con sal marina</p>
+          <h3>Papas Fritas Premium</h3>
+          <p>Papas crujientes con sal marina gourmet</p>
           <div class="card-footer">
             <span class="price">€3.99</span>
-            <button class="add-btn" onclick="addToCart('Papas Fritas', 3.99)">+ Agregar</button>
+            <button class="add-btn" onclick="addToCart('Papas Fritas', 3.99)">Agregar</button>
           </div>
           <p class="alergenos">Vegano</p>
         </div>
@@ -902,10 +1040,10 @@ footer {
         <div class="card-image fries">🧀</div>
         <div class="card-content">
           <h3>Papas Cheese</h3>
-          <p>Papas fritas con queso fundido y bacon</p>
+          <p>Papas fritas con queso fundido y bacon crujiente</p>
           <div class="card-footer">
             <span class="price">€5.99</span>
-            <button class="add-btn" onclick="addToCart('Papas Cheese', 5.99)">+ Agregar</button>
+            <button class="add-btn" onclick="addToCart('Papas Cheese', 5.99)">Agregar</button>
           </div>
           <p class="alergenos">🥛 Lácteos</p>
         </div>
@@ -914,11 +1052,11 @@ footer {
       <div class="card">
         <div class="card-image fries">🍗</div>
         <div class="card-content">
-          <h3>Nuggets de Pollo</h3>
-          <p>6 nuggets crujientes con salsas</p>
+          <h3>Nuggets Crujientes</h3>
+          <p>6 nuggets artesanales con salsas especiales</p>
           <div class="card-footer">
             <span class="price">€6.99</span>
-            <button class="add-btn" onclick="addToCart('Nuggets de Pollo', 6.99)">+ Agregar</button>
+            <button class="add-btn" onclick="addToCart('Nuggets de Pollo', 6.99)">Agregar</button>
           </div>
           <p class="alergenos">🌾 Gluten</p>
         </div>
@@ -928,10 +1066,10 @@ footer {
         <div class="card-image fries">🧅</div>
         <div class="card-content">
           <h3>Aros de Cebolla</h3>
-          <p>Aros crujientes y dorados</p>
+          <p>Aros crujientes y dorados con dipping sauce</p>
           <div class="card-footer">
             <span class="price">€4.99</span>
-            <button class="add-btn" onclick="addToCart('Aros de Cebolla', 4.99)">+ Agregar</button>
+            <button class="add-btn" onclick="addToCart('Aros de Cebolla', 4.99)">Agregar</button>
           </div>
           <p class="alergenos">🌾 Gluten</p>
         </div>
@@ -941,16 +1079,16 @@ footer {
 
   <!-- BEBIDAS -->
   <div class="menu-category">
-    <h3>🥤 Bebidas</h3>
+    <h3>Bebidas Refrescantes</h3>
     <div class="menu-grid">
       <div class="card">
         <div class="card-image drink">🥤</div>
         <div class="card-content">
-          <h3>Coca Cola</h3>
-          <p>Refresco frío (330ml)</p>
+          <h3>Coca Cola Premium</h3>
+          <p>Refresco frío premium (330ml)</p>
           <div class="card-footer">
             <span class="price">€2.49</span>
-            <button class="add-btn" onclick="addToCart('Coca Cola', 2.49)">+ Agregar</button>
+            <button class="add-btn" onclick="addToCart('Coca Cola', 2.49)">Agregar</button>
           </div>
           <p class="alergenos">Sin gluten</p>
         </div>
@@ -960,10 +1098,10 @@ footer {
         <div class="card-image drink">🧡</div>
         <div class="card-content">
           <h3>Jugo Natural</h3>
-          <p>Jugo de naranja fresco (400ml)</p>
+          <p>Jugo de naranja fresco exprimido (400ml)</p>
           <div class="card-footer">
             <span class="price">€3.99</span>
-            <button class="add-btn" onclick="addToCart('Jugo Natural', 3.99)">+ Agregar</button>
+            <button class="add-btn" onclick="addToCart('Jugo Natural', 3.99)">Agregar</button>
           </div>
           <p class="alergenos">Vegano</p>
         </div>
@@ -972,11 +1110,11 @@ footer {
       <div class="card">
         <div class="card-image drink">🥛</div>
         <div class="card-content">
-          <h3>Milkshake</h3>
-          <p>Milkshake de vainilla o fresa (400ml)</p>
+          <h3>Milkshake Artesanal</h3>
+          <p>Milkshake gourmet de vainilla o fresa (400ml)</p>
           <div class="card-footer">
             <span class="price">€4.99</span>
-            <button class="add-btn" onclick="addToCart('Milkshake', 4.99)">+ Agregar</button>
+            <button class="add-btn" onclick="addToCart('Milkshake', 4.99)">Agregar</button>
           </div>
           <p class="alergenos">🥛 Lácteos</p>
         </div>
@@ -985,11 +1123,11 @@ footer {
       <div class="card">
         <div class="card-image drink">💧</div>
         <div class="card-content">
-          <h3>Agua Mineral</h3>
-          <p>Agua mineral natural (500ml)</p>
+          <h3>Agua Mineral Natural</h3>
+          <p>Agua mineral pura (500ml)</p>
           <div class="card-footer">
             <span class="price">€1.99</span>
-            <button class="add-btn" onclick="addToCart('Agua Mineral', 1.99)">+ Agregar</button>
+            <button class="add-btn" onclick="addToCart('Agua Mineral', 1.99)">Agregar</button>
           </div>
           <p class="alergenos">Vegano</p>
         </div>
@@ -999,171 +1137,162 @@ footer {
 
   <!-- POSTRES -->
   <div class="menu-category">
-    <h3>🍰 Postres</h3>
+    <h3>Postres Artesanales</h3>
     <div class="menu-grid">
       <div class="card">
-        <div class="card-image dessert">🍩</div>
+        <div class="card-image dessert">🍰</div>
         <div class="card-content">
-          <h3>Donuts (3 ud)</h3>
-          <p>Donuts glaseados variados</p>
+          <h3>Brownie Decadente</h3>
+          <p>Brownie de chocolate con helado premium</p>
           <div class="card-footer">
             <span class="price">€5.99</span>
-            <button class="add-btn" onclick="addToCart('Donuts (3 ud)', 5.99)">+ Agregar</button>
+            <button class="add-btn" onclick="addToCart('Brownie', 5.99)">Agregar</button>
           </div>
           <p class="alergenos">🌾 Gluten | 🥛 Lácteos</p>
         </div>
       </div>
 
       <div class="card">
-        <div class="card-image dessert">🍦</div>
+        <div class="card-image dessert">🍪</div>
         <div class="card-content">
-          <h3>Helado</h3>
-          <p>Helado gourmet (3 sabores)</p>
+          <h3>Cookies Caseras</h3>
+          <p>Cookies artesanales con trozos de chocolate</p>
+          <div class="card-footer">
+            <span class="price">€4.49</span>
+            <button class="add-btn" onclick="addToCart('Cookies', 4.49)">Agregar</button>
+          </div>
+          <p class="alergenos">🌾 Gluten | 🥛 Lácteos</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-image dessert">🍨</div>
+        <div class="card-content">
+          <h3>Helado Premium</h3>
+          <p>Helado artesanal de varios sabores</p>
           <div class="card-footer">
             <span class="price">€4.99</span>
-            <button class="add-btn" onclick="addToCart('Helado', 4.99)">+ Agregar</button>
+            <button class="add-btn" onclick="addToCart('Helado', 4.99)">Agregar</button>
           </div>
           <p class="alergenos">🥛 Lácteos</p>
         </div>
       </div>
 
       <div class="card">
-        <div class="card-image dessert">🍫</div>
-        <div class="card-content">
-          <h3>Brownie Chocolate</h3>
-          <p>Brownie casero con chocolate derretido</p>
-          <div class="card-footer">
-            <span class="price">€4.99</span>
-            <button class="add-btn" onclick="addToCart('Brownie Chocolate', 4.99)">+ Agregar</button>
-          </div>
-          <p class="alergenos">🌾 Gluten | 🥛 Lácteos</p>
-        </div>
-      </div>
-
-      <div class="card">
         <div class="card-image dessert">🥧</div>
         <div class="card-content">
-          <h3>Tarta de Manzana</h3>
-          <p>Tarta casera recién hecha</p>
+          <h3>Apple Pie</h3>
+          <p>Pastel de manzana casero con canela</p>
           <div class="card-footer">
-            <span class="price">€5.99</span>
-            <button class="add-btn" onclick="addToCart('Tarta de Manzana', 5.99)">+ Agregar</button>
+            <span class="price">€5.49</span>
+            <button class="add-btn" onclick="addToCart('Apple Pie', 5.49)">Agregar</button>
           </div>
           <p class="alergenos">🌾 Gluten | 🥛 Lácteos</p>
         </div>
       </div>
     </div>
   </div>
-
 </section>
 
 <!-- ABOUT -->
 <section id="about" class="about container">
   <h2>Sobre Nosotros</h2>
-  <p class="section-subtitle">Conoce la historia de Bites & Buns</p>
-  
+  <p class="section-subtitle">Conoce nuestra historia y filosofía</p>
+
   <div class="about-content">
     <div class="about-text">
-      <h3>¿Quiénes somos?</h3>
-      <p>Bites & Buns es un restaurante de comida rápida premium que se dedica a preparar la mejor comida con ingredientes frescos y de calidad. Con más de 10 años de experiencia en la industria, nos hemos ganado la confianza de nuestros clientes gracias a nuestro compromiso con la excelencia.</p>
-      <p>Nuestro objetivo es brindar una experiencia gastronómica única, rápida y deliciosa, sin comprometer la calidad de nuestros productos. Cada hamburguesa, hot dog y acompañamiento es preparado con dedicación y amor por nuestro equipo de expertos chefs.</p>
-      
+      <h3>Calidad y Excelencia</h3>
+      <p>Desde nuestros inicios, hemos comprometido a preparar cada plato con ingredientes seleccionados y técnicas culinarias de calidad.</p>
+      <p>Nuestro equipo de chefs expertos trabaja día a día para ofrecerle la mejor experiencia gastronómica posible, combinando tradición con innovación.</p>
+
       <div class="features">
         <div class="feature">
-          <h4>🏆 Calidad Premium</h4>
-          <p>Ingredientes frescos y seleccionados cuidadosamente</p>
+          <h4>🏆 Ingredientes Premium</h4>
+          <p>Seleccionados cuidadosamente de los mejores proveedores locales e internacionales</p>
         </div>
         <div class="feature">
-          <h4>⚡ Rápido</h4>
-          <p>Recibe tu pedido en minutos</p>
+          <h4>👨‍🍳 Chefs Expertos</h4>
+          <p>Equipo profesional con experiencia internacional y pasión por la gastronomía</p>
         </div>
         <div class="feature">
-          <h4>🎯 Especialistas</h4>
-          <p>Chefs con años de experiencia</p>
+          <h4>⏱️ Servicio Rápido</h4>
+          <p>Preparación rápida sin comprometer la calidad de nuestros platos</p>
         </div>
         <div class="feature">
-          <h4>📱 Fácil de Pedir</h4>
-          <p>Ordena desde nuestra web o apps de delivery</p>
+          <h4>🌍 Sostenibilidad</h4>
+          <p>Compromiso con prácticas sostenibles y responsabilidad ambiental</p>
         </div>
       </div>
     </div>
 
     <div class="stats-box">
       <div class="stat-item">
-        <div class="stat-number">+50K</div>
+        <div class="stat-number">15+</div>
+        <div class="stat-label">Años de Experiencia</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number">50K+</div>
         <div class="stat-label">Clientes Satisfechos</div>
       </div>
       <div class="stat-item">
-        <div class="stat-number">+500</div>
-        <div class="stat-label">Pedidos al Mes</div>
+        <div class="stat-number">100+</div>
+        <div class="stat-label">Platos Disponibles</div>
       </div>
       <div class="stat-item">
-        <div class="stat-number">4.9★</div>
-        <div class="stat-label">Calificación Promedio</div>
-      </div>
-      <div class="stat-item">
-        <div class="stat-number">10+</div>
-        <div class="stat-label">Años de Experiencia</div>
+        <div class="stat-number">5⭐</div>
+        <div class="stat-label">Valoración Promedio</div>
       </div>
     </div>
   </div>
 </section>
 
 <!-- CONTACT -->
-<section id="contact" class="contact">
-  <div class="container">
-    <h2>📍 Contáctanos</h2>
-    <p class="section-subtitle" style="color: white;">Estamos listos para servirte</p>
-    
-    <div class="contact-content">
-      <div class="contact-item">
-        <h4>📍 Dirección</h4>
-        <p>Calle Principal 123, Centro<br>Madrid, España</p>
-      </div>
-      <div class="contact-item">
-        <h4>📞 Teléfono</h4>
-        <p>+34 91 123 4567<br>Llamadas 24/7</p>
-      </div>
-      <div class="contact-item">
-        <h4>⏰ Horarios</h4>
-        <p>Lunes a Viernes: 11:00 - 23:00<br>Sábado y Domingo: 12:00 - 00:00</p>
-      </div>
-      <div class="contact-item">
-        <h4>📧 Email</h4>
-        <p>info@bitesandbuns.es<br>pedidos@bitesandbuns.es</p>
-      </div>
+<section id="contact" class="contact container">
+  <h2>Contáctanos</h2>
+  <p class="section-subtitle">Estamos disponibles para tus preguntas y pedidos</p>
+
+  <div class="contact-content">
+    <div class="contact-item">
+      <h4>📍 Ubicación</h4>
+      <p>Calle Principal 123<br>Madrid, 28001<br>España</p>
+    </div>
+    <div class="contact-item">
+      <h4>📞 Teléfono</h4>
+      <p>+34 91 234 5678<br>+34 91 234 5679<br>Disponible 24/7</p>
+    </div>
+    <div class="contact-item">
+      <h4>✉️ Email</h4>
+      <p>info@premiummeals.es<br>pedidos@premiummeals.es<br>Respuesta en 24h</p>
     </div>
   </div>
 </section>
 
-<!-- CARRITO MODAL -->
-<div id="cart-modal" class="modal">
-  <div class="modal-content">
-    <div class="modal-header">
-      <h3>🛒 Mi Carrito</h3>
-      <button class="close-btn" onclick="toggleCart()">×</button>
+<!-- CHAT IA -->
+<div class="chat-container">
+  <div class="chat-header">
+    Asistente Premium
+    <button class="chat-toggle" onclick="toggleChat()">−</button>
+  </div>
+  <div class="chat-content">
+    <div class="chat-messages" id="chat-messages">
+      <div class="message bot">¡Hola! ¿Cómo podemos ayudarte hoy?</div>
     </div>
-    <div id="cart-items-container">
-      <div class="empty-cart">Tu carrito está vacío</div>
-    </div>
-    <div class="cart-total" id="cart-total" style="display: none;">
-      <div class="total-amount">Total: €<span id="total-price">0.00</span></div>
-      <button class="checkout-btn" onclick="checkout()">Realizar Pedido</button>
+    <div class="chat-input-group">
+      <input type="text" class="chat-input" id="chat-input" placeholder="Escribe tu pregunta...">
+      <button class="chat-send-btn" onclick="sendMessage()">Enviar</button>
     </div>
   </div>
 </div>
 
-<!-- CHAT IA -->
-<div class="chat-container">
-  <div class="chat-header">
-    <span>🤖 Asistente</span>
-    <button class="chat-toggle" onclick="toggleChat()">−</button>
-  </div>
-  <div id="chat-content" class="chat-content">
-    <div class="chat-messages" id="chat-messages"></div>
-    <div class="chat-input-group">
-      <input type="text" id="chat-input" class="chat-input" placeholder="Pregunta algo..." onkeypress="handleChatKeypress(event)">
-      <button class="chat-send-btn" onclick="sendMessage()">Enviar</button>
+<!-- CARRITO MODAL -->
+<div class="modal" id="cart-modal">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h2>Carrito de Compra</h2>
+      <button class="close-btn" onclick="toggleCart()">×</button>
+    </div>
+    <div id="cart-items-container">
+      <div class="empty-cart">Tu carrito está vacío</div>
     </div>
   </div>
 </div>
@@ -1172,103 +1301,102 @@ footer {
 <footer>
   <div class="footer-content">
     <div class="footer-section">
-      <h4>Bites & Buns</h4>
-      <p>La mejor comida rápida premium de la ciudad. Ingredientes frescos, preparación rápida, sabor garantizado.</p>
+      <h4>Premium Meals</h4>
+      <p>Experiencia gastronómica de calidad premium para nuestros clientes más exigentes.</p>
     </div>
     <div class="footer-section">
-      <h4>Enlaces Rápidos</h4>
-      <a href="#menu">Menú</a>
-      <a href="#about">Nosotros</a>
-      <a href="#contact">Contacto</a>
+      <h4>Menú</h4>
+      <a href="#menu">Ver Menú Completo</a>
+      <a href="#menu">Platos Especiales</a>
+      <a href="#menu">Bebidas</a>
+      <a href="#menu">Postres</a>
+    </div>
+    <div class="footer-section">
+      <h4>Contacto</h4>
+      <p>📞 +34 91 234 5678</p>
+      <p>✉️ info@premiummeals.es</p>
+      <p>📍 Madrid, España</p>
     </div>
     <div class="footer-section">
       <h4>Síguenos</h4>
       <a href="#">Facebook</a>
       <a href="#">Instagram</a>
       <a href="#">Twitter</a>
-    </div>
-    <div class="footer-section">
-      <h4>Información Legal</h4>
-      <a href="#">Términos y Condiciones</a>
-      <a href="#">Política de Privacidad</a>
-      <a href="#">Cookies</a>
+      <a href="#">LinkedIn</a>
     </div>
   </div>
   <div class="footer-bottom">
-    <p>&copy; 2026 Bites & Buns. Todos los derechos reservados. | Hecho con ❤️ para ti</p>
+    <p>&copy; 2026 Premium Meals. Todos los derechos reservados. | <a href="#" style="color: #aaa;">Política de Privacidad</a> | <a href="#" style="color: #aaa;">Términos de Servicio</a></p>
   </div>
 </footer>
 
 <script>
-// CARRITO
 let cart = [];
 
 function addToCart(name, price) {
   const existingItem = cart.find(item => item.name === name);
-  
   if (existingItem) {
-    existingItem.quantity++;
+    existingItem.quantity += 1;
   } else {
     cart.push({ name, price, quantity: 1 });
   }
-  
   updateCart();
-  showNotification(`${name} añadido al carrito ✓`);
+  showNotification(`${name} agregado al carrito`);
 }
 
-function removeFromCart(index) {
-  cart.splice(index, 1);
+function removeFromCart(name) {
+  cart = cart.filter(item => item.name !== name);
   updateCart();
 }
 
-function updateQuantity(index, change) {
-  cart[index].quantity += change;
-  if (cart[index].quantity <= 0) {
-    removeFromCart(index);
-  } else {
+function updateQuantity(name, quantity) {
+  const item = cart.find(item => item.name === name);
+  if (item) {
+    item.quantity = Math.max(1, quantity);
     updateCart();
   }
 }
 
 function updateCart() {
-  const cartCount = document.getElementById('cart-count');
-  const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
-  cartCount.textContent = totalItems;
-  
-  const cartContainer = document.getElementById('cart-items-container');
-  const cartTotal = document.getElementById('cart-total');
-  
+  const cartCount = cart.reduce((sum, item) => sum + item.quantity, 0);
+  document.getElementById('cart-count').textContent = cartCount;
+
+  const cartItemsContainer = document.getElementById('cart-items-container');
   if (cart.length === 0) {
-    cartContainer.innerHTML = '<div class="empty-cart">Tu carrito está vacío</div>';
-    cartTotal.style.display = 'none';
+    cartItemsContainer.innerHTML = '<div class="empty-cart">Tu carrito está vacío</div>';
     return;
   }
-  
+
   let html = '';
   let total = 0;
-  
-  cart.forEach((item, index) => {
+
+  cart.forEach(item => {
     const itemTotal = item.price * item.quantity;
     total += itemTotal;
     html += `
       <div class="cart-item">
         <div class="cart-item-info">
           <h4>${item.name}</h4>
-          <p class="cart-item-price">€${item.price.toFixed(2)}</p>
+          <div class="cart-item-price">€${itemTotal.toFixed(2)}</div>
         </div>
         <div class="quantity-control">
-          <button class="qty-btn" onclick="updateQuantity(${index}, -1)">−</button>
-          <span style="min-width: 30px; text-align: center;">${item.quantity}</span>
-          <button class="qty-btn" onclick="updateQuantity(${index}, 1)">+</button>
-          <button class="remove-btn" onclick="removeFromCart(${index})">Eliminar</button>
+          <button class="qty-btn" onclick="updateQuantity('${item.name}', ${item.quantity - 1})">−</button>
+          <span>${item.quantity}</span>
+          <button class="qty-btn" onclick="updateQuantity('${item.name}', ${item.quantity + 1})">+</button>
+          <button class="remove-btn" onclick="removeFromCart('${item.name}')">Eliminar</button>
         </div>
       </div>
     `;
   });
-  
-  cartContainer.innerHTML = html;
-  document.getElementById('total-price').textContent = total.toFixed(2);
-  cartTotal.style.display = 'block';
+
+  html += `
+    <div class="cart-total">
+      <div class="total-amount">€${total.toFixed(2)}</div>
+      <button class="checkout-btn" onclick="checkout()">Realizar Pedido</button>
+    </div>
+  `;
+
+  cartItemsContainer.innerHTML = html;
 }
 
 function toggleCart() {
@@ -1280,16 +1408,40 @@ function checkout() {
     alert('Tu carrito está vacío');
     return;
   }
-  
-  const total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
-  const items = cart.map(item => `${item.quantity}x ${item.name}`).join(', ');
-  
-  alert(`¡Pedido realizado!\n\nProductos: ${items}\nTotal: €${total.toFixed(2)}\n\nTe contactaremos pronto para confirmar tu pedido.`);
-  
+  const total = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
+  alert(`Pedido realizado. Total: €${total.toFixed(2)}. Será procesado en breve.`);
   cart = [];
   updateCart();
   toggleCart();
-  showNotification('¡Pedido realizado con éxito! 🎉');
+}
+
+function toggleChat() {
+  document.querySelector('.chat-content').classList.toggle('active');
+  document.querySelector('.chat-toggle').textContent = 
+    document.querySelector('.chat-content').classList.contains('active') ? '−' : '+';
+}
+
+function sendMessage() {
+  const input = document.getElementById('chat-input');
+  const message = input.value.trim();
+  if (!message) return;
+
+  const messagesContainer = document.getElementById('chat-messages');
+  const userMsg = document.createElement('div');
+  userMsg.className = 'message user';
+  userMsg.textContent = message;
+  messagesContainer.appendChild(userMsg);
+
+  input.value = '';
+  messagesContainer.scrollTop = messagesContainer.scrollHeight;
+
+  setTimeout(() => {
+    const botMsg = document.createElement('div');
+    botMsg.className = 'message bot';
+    botMsg.textContent = 'Gracias por tu mensaje. Nos pondremos en contacto pronto.';
+    messagesContainer.appendChild(botMsg);
+    messagesContainer.scrollTop = messagesContainer.scrollHeight;
+  }, 500);
 }
 
 function showNotification(message) {
@@ -1297,90 +1449,14 @@ function showNotification(message) {
   notification.className = 'notification';
   notification.textContent = message;
   document.body.appendChild(notification);
-  
+
   setTimeout(() => {
     notification.remove();
   }, 3000);
 }
 
-// CHAT IA
-const chatMessages = [
-  "Hola! 👋 Bienvenido a Bites & Buns. ¿Qué puedo ayudarte?",
-  "Te recomendaré deliciosos productos de nuestro menú."
-];
-
-const chatResponses = {
-  "hamburguesa": "🍔 Te recomendamos nuestras hamburguesas! El 'Double Cheese' y 'Bacon BBQ' son nuestras favoritas. ¿Quieres que agregue alguna a tu carrito?",
-  "hot dog": "🌭 Nuestros hot dogs son deliciosos! Prueba el 'Bacon Hot Dog', es una sensación. ¿Te interesa?",
-  "papas": "🍟 Las papas fritas están crujientes y deliciosas. También ofrecemos 'Papas Cheese' con queso fundido. ¿Cuál prefieres?",
-  "bebida": "🥤 Tenemos refrescos, jugos naturales, milkshakes y agua mineral. ¿Qué tipo prefieres?",
-  "postre": "🍰 Nuestros postres son irresistibles: donuts, helado, brownies y tartas. ¿Cuál te llama más?",
-  "picante": "🌶️ Si te gusta el picante, prueba nuestro 'Spicy Inferno' con jalapeños y sriracha. ¡Muy sabroso!",
-  "precio": "💰 Nuestros precios son muy competitivos. Desde €1.99 en bebidas hasta €11.99 en nuestras mejores hamburguesas. ¡Buen precio para comida premium!",
-  "entrega": "🚗 Puedes pedir a través de Glovo, Just Eat o Uber Eats. También puedes venir a visitarnos. Revisa nuestra dirección en contacto.",
-  "horario": "⏰ Lunes a Viernes: 11:00 - 23:00. Sábado y Domingo: 12:00 - 00:00. ¡Siempre disponibles!",
-  "alergenos": "🌾 Manejamos información sobre alérgenos. Consulta cada producto o llámanos para más detalles. Tu seguridad es importante.",
-  "opinión": "⭐ Tenemos 4.9 estrellas de calificación promedio y +50K clientes satisfechos. ¡Únete a nuestra comunidad!",
-  "gracias": "¡De nada! 😊 Es un placer servirte. ¿Hay algo más en lo que pueda ayudarte?",
-  "hola": "¡Hola! 👋 ¡Bienvenido a Bites & Buns! ¿Qué necesitas hoy?",
-  "ayuda": "Puedo ayudarte con: recomendaciones de menú, precios, horarios, entregas, alérgenos y más. ¿Qué necesitas?"
-};
-
-function displayChatMessage(message, isUser = false) {
-  const messagesDiv = document.getElementById('chat-messages');
-  const msgDiv = document.createElement('div');
-  msgDiv.className = `message ${isUser ? 'user' : 'bot'}`;
-  msgDiv.textContent = message;
-  messagesDiv.appendChild(msgDiv);
-  messagesDiv.scrollTop = messagesDiv.scrollHeight;
-}
-
-function getBotResponse(userMessage) {
-  const lowercaseMessage = userMessage.toLowerCase();
-  
-  for (const [key, response] of Object.entries(chatResponses)) {
-    if (lowercaseMessage.includes(key)) {
-      return response;
-    }
-  }
-  
-  return "No estoy seguro sobre eso. 🤔 Puedo ayudarte con información sobre menú, precios, horarios, entregas, alérgenos y más. ¿Algo específico?";
-}
-
-function sendMessage() {
-  const input = document.getElementById('chat-input');
-  const message = input.value.trim();
-  
-  if (!message) return;
-  
-  displayChatMessage(message, true);
-  input.value = '';
-  
-  setTimeout(() => {
-    const response = getBotResponse(message);
-    displayChatMessage(response, false);
-  }, 300);
-}
-
-function toggleChat() {
-  document.getElementById('chat-content').classList.toggle('active');
-}
-
-function handleChatKeypress(event) {
-  if (event.key === 'Enter') {
-    sendMessage();
-  }
-}
-
-// INICIALIZAR CHAT
-document.addEventListener('DOMContentLoaded', () => {
-  displayChatMessage(chatMessages[0], false);
-  setTimeout(() => {
-    displayChatMessage(chatMessages[1], false);
-  }, 500);
-  
-  // Mostrar chat por defecto
-  document.getElementById('chat-content').classList.add('active');
+document.getElementById('chat-input').addEventListener('keypress', (e) => {
+  if (e.key === 'Enter') sendMessage();
 });
 </script>
 
