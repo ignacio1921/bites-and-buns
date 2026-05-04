@@ -215,10 +215,53 @@ section h2 {
   box-shadow: 0 10px 30px rgba(255, 107, 53, 0.3);
 }
 
+/* CARD IMAGE - ESTILOS VISUALES SIN IMÁGENES */
 .card-image {
   width: 100%;
   height: 200px;
-  object-fit: cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 70px;
+  font-weight: bold;
+  position: relative;
+  overflow: hidden;
+}
+
+/* COLORES PARA CADA CATEGORÍA */
+.card-image.burger {
+  background: linear-gradient(135deg, #8B4513 0%, #D2691E 100%);
+}
+
+.card-image.hotdog {
+  background: linear-gradient(135deg, #CD853F 0%, #DAA520 100%);
+}
+
+.card-image.fries {
+  background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
+}
+
+.card-image.drink {
+  background: linear-gradient(135deg, #1E90FF 0%, #00CED1 100%);
+}
+
+.card-image.dessert {
+  background: linear-gradient(135deg, #FF69B4 0%, #FF1493 100%);
+}
+
+/* ANIMACIÓN PARA ICONOS */
+.card-image::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: rgba(255,255,255,0.1);
+  animation: shine 3s infinite;
+}
+
+@keyframes shine {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
 }
 
 .card-content {
@@ -447,6 +490,30 @@ section h2 {
   color: #aaa;
 }
 
+/* STATS BOX */
+.stats-box {
+  background: linear-gradient(135deg, var(--primary) 0%, #ff8c42 100%);
+  padding: 40px;
+  border-radius: 12px;
+  text-align: center;
+}
+
+.stat-item {
+  margin-bottom: 25px;
+}
+
+.stat-number {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: white;
+  margin-bottom: 10px;
+}
+
+.stat-label {
+  font-size: 1rem;
+  color: rgba(255,255,255,0.9);
+}
+
 /* CONTACT */
 .contact {
   background: linear-gradient(135deg, var(--primary) 0%, #ff8c42 100%);
@@ -466,6 +533,10 @@ section h2 {
 .contact-item {
   text-align: center;
   color: white;
+  background: rgba(255,255,255,0.1);
+  padding: 25px;
+  border-radius: 12px;
+  backdrop-filter: blur(10px);
 }
 
 .contact-item h4 {
@@ -712,7 +783,7 @@ footer {
     <h3>🍔 Hamburguesas</h3>
     <div class="menu-grid">
       <div class="card">
-        <img src="https://source.unsplash.com/400x300/?burger,classic" alt="Classic Burger">
+        <div class="card-image burger">🍔</div>
         <div class="card-content">
           <h3>Classic Burger</h3>
           <p>Carne jugosa, lechuga, tomate, cebolla y salsa especial</p>
@@ -725,7 +796,7 @@ footer {
       </div>
 
       <div class="card">
-        <img src="https://source.unsplash.com/400x300/?burger,cheese" alt="Double Cheese">
+        <div class="card-image burger">🧀</div>
         <div class="card-content">
           <h3>Double Cheese</h3>
           <p>Doble carne, queso cheddar y salsas gourmet</p>
@@ -738,7 +809,7 @@ footer {
       </div>
 
       <div class="card">
-        <img src="https://source.unsplash.com/400x300/?burger,bacon" alt="Bacon BBQ">
+        <div class="card-image burger">🥓</div>
         <div class="card-content">
           <h3>Bacon BBQ</h3>
           <p>Carne premium, bacon crujiente, cebolla caramelizada y BBQ</p>
@@ -751,7 +822,7 @@ footer {
       </div>
 
       <div class="card">
-        <img src="https://source.unsplash.com/400x300/?burger,spicy" alt="Spicy Inferno">
+        <div class="card-image burger">🌶️</div>
         <div class="card-content">
           <h3>Spicy Inferno</h3>
           <p>Carne picante, jalapeños, chiles y mayonesa de sriracha</p>
@@ -770,7 +841,7 @@ footer {
     <h3>🌭 Hot Dogs</h3>
     <div class="menu-grid">
       <div class="card">
-        <img src="https://source.unsplash.com/400x300/?hotdog" alt="Classic Hot Dog">
+        <div class="card-image hotdog">🌭</div>
         <div class="card-content">
           <h3>Classic Hot Dog</h3>
           <p>Salchicha premium, pan tostado, mostaza y cebolla</p>
@@ -783,7 +854,7 @@ footer {
       </div>
 
       <div class="card">
-        <img src="https://source.unsplash.com/400x300/?hotdog,cheese" alt="Cheese Dog">
+        <div class="card-image hotdog">🧀</div>
         <div class="card-content">
           <h3>Cheese Dog</h3>
           <p>Salchicha con queso cheddar fundido</p>
@@ -796,7 +867,7 @@ footer {
       </div>
 
       <div class="card">
-        <img src="https://source.unsplash.com/400x300/?hotdog,bacon" alt="Bacon Hot Dog">
+        <div class="card-image hotdog">🥓</div>
         <div class="card-content">
           <h3>Bacon Hot Dog</h3>
           <p>Salchicha con bacon crujiente y queso</p>
@@ -815,7 +886,7 @@ footer {
     <h3>🍟 Acompañamientos</h3>
     <div class="menu-grid">
       <div class="card">
-        <img src="https://source.unsplash.com/400x300/?fries" alt="Papas Fritas">
+        <div class="card-image fries">🍟</div>
         <div class="card-content">
           <h3>Papas Fritas</h3>
           <p>Papas crujientes con sal marina</p>
@@ -828,7 +899,7 @@ footer {
       </div>
 
       <div class="card">
-        <img src="https://source.unsplash.com/400x300/?fries,cheese" alt="Papas Cheese">
+        <div class="card-image fries">🧀</div>
         <div class="card-content">
           <h3>Papas Cheese</h3>
           <p>Papas fritas con queso fundido y bacon</p>
@@ -841,7 +912,7 @@ footer {
       </div>
 
       <div class="card">
-        <img src="https://source.unsplash.com/400x300/?chicken,nuggets" alt="Nuggets">
+        <div class="card-image fries">🍗</div>
         <div class="card-content">
           <h3>Nuggets de Pollo</h3>
           <p>6 nuggets crujientes con salsas</p>
@@ -854,7 +925,7 @@ footer {
       </div>
 
       <div class="card">
-        <img src="https://source.unsplash.com/400x300/?onion,rings" alt="Aros de Cebolla">
+        <div class="card-image fries">🧅</div>
         <div class="card-content">
           <h3>Aros de Cebolla</h3>
           <p>Aros crujientes y dorados</p>
@@ -873,7 +944,7 @@ footer {
     <h3>🥤 Bebidas</h3>
     <div class="menu-grid">
       <div class="card">
-        <img src="https://source.unsplash.com/400x300/?soda,drink" alt="Coca Cola">
+        <div class="card-image drink">🥤</div>
         <div class="card-content">
           <h3>Coca Cola</h3>
           <p>Refresco frío (330ml)</p>
@@ -886,7 +957,7 @@ footer {
       </div>
 
       <div class="card">
-        <img src="https://source.unsplash.com/400x300/?juice,orange" alt="Jugo Natural">
+        <div class="card-image drink">🧡</div>
         <div class="card-content">
           <h3>Jugo Natural</h3>
           <p>Jugo de naranja fresco (400ml)</p>
@@ -899,7 +970,7 @@ footer {
       </div>
 
       <div class="card">
-        <img src="https://source.unsplash.com/400x300/?smoothie,berry" alt="Milkshake">
+        <div class="card-image drink">🥛</div>
         <div class="card-content">
           <h3>Milkshake</h3>
           <p>Milkshake de vainilla o fresa (400ml)</p>
@@ -912,7 +983,7 @@ footer {
       </div>
 
       <div class="card">
-        <img src="https://source.unsplash.com/400x300/?water,bottle" alt="Agua">
+        <div class="card-image drink">💧</div>
         <div class="card-content">
           <h3>Agua Mineral</h3>
           <p>Agua mineral natural (500ml)</p>
@@ -931,7 +1002,7 @@ footer {
     <h3>🍰 Postres</h3>
     <div class="menu-grid">
       <div class="card">
-        <img src="https://source.unsplash.com/400x300/?donut" alt="Donuts">
+        <div class="card-image dessert">🍩</div>
         <div class="card-content">
           <h3>Donuts (3 ud)</h3>
           <p>Donuts glaseados variados</p>
@@ -944,7 +1015,7 @@ footer {
       </div>
 
       <div class="card">
-        <img src="https://source.unsplash.com/400x300/?ice-cream" alt="Helado">
+        <div class="card-image dessert">🍦</div>
         <div class="card-content">
           <h3>Helado</h3>
           <p>Helado gourmet (3 sabores)</p>
@@ -957,7 +1028,7 @@ footer {
       </div>
 
       <div class="card">
-        <img src="https://source.unsplash.com/400x300/?brownie,chocolate" alt="Brownie">
+        <div class="card-image dessert">🍫</div>
         <div class="card-content">
           <h3>Brownie Chocolate</h3>
           <p>Brownie casero con chocolate derretido</p>
@@ -970,7 +1041,7 @@ footer {
       </div>
 
       <div class="card">
-        <img src="https://source.unsplash.com/400x300/?pie,apple" alt="Tarta">
+        <div class="card-image dessert">🥧</div>
         <div class="card-content">
           <h3>Tarta de Manzana</h3>
           <p>Tarta casera recién hecha</p>
@@ -1017,14 +1088,23 @@ footer {
       </div>
     </div>
 
-    <div style="text-align: center; color: #aaa;">
-      <h3 style="color: var(--secondary); margin-bottom: 20px;">📊 Nuestras Cifras</h3>
-      <p style="font-size: 2.5rem; color: var(--secondary); margin-bottom: 10px;">+50K</p>
-      <p>Clientes satisfechos</p>
-      <p style="font-size: 2.5rem; color: var(--secondary); margin: 20px 0 10px;">+500</p>
-      <p>Pedidos al mes</p>
-      <p style="font-size: 2.5rem; color: var(--secondary); margin: 20px 0 10px;">4.9★</p>
-      <p>Calificación promedio</p>
+    <div class="stats-box">
+      <div class="stat-item">
+        <div class="stat-number">+50K</div>
+        <div class="stat-label">Clientes Satisfechos</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number">+500</div>
+        <div class="stat-label">Pedidos al Mes</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number">4.9★</div>
+        <div class="stat-label">Calificación Promedio</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number">10+</div>
+        <div class="stat-label">Años de Experiencia</div>
+      </div>
     </div>
   </div>
 </section>
@@ -1264,7 +1344,7 @@ function getBotResponse(userMessage) {
     }
   }
   
-  return "No estoy seguro sobre eso. 🤔 Puedo ayudarte con información sobre menú, precios, horarios, entregas y más. ¿Algo específico?";
+  return "No estoy seguro sobre eso. 🤔 Puedo ayudarte con información sobre menú, precios, horarios, entregas, alérgenos y más. ¿Algo específico?";
 }
 
 function sendMessage() {
